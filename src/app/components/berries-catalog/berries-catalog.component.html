@@ -1,0 +1,7 @@
+<div class="title">Catalog</div>
+<app-berries-display [berries]="berries"></app-berries-display>
+<div class="pagination">
+    <button [disabled]="berriesCatalog.previous == null" (click)="prevClick()"><</button>
+    <span>{{getPaginationInfo()}}</span>
+    <button [disabled]="berriesCatalog.next == null" (click)="nextClick()">></button>
+</div>

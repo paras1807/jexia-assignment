@@ -1,0 +1,27 @@
+<div class="user-input">
+    <input type="text" placeholder="Search" [(ngModel)]="filter" id="search-form">
+    <select id="sorting" [(ngModel)]="sortAsc">
+        <option value="true">Sort by Name Ascending</option>
+        <option value="false">Sort by Name Descending</option>
+    </select>
+</div>
+<div class="catalog-container">
+    <div class="card-container" *ngFor="let val of berries | filterBerryBy: filter | orderBerryBy: sortAsc">
+        <div class="catalog-card" >
+            <div class="card-header">
+                <div class="name">{{val.name}}</div>
+            </div>
+            <div class="card-body">
+                <div class="firmness">Firmness : {{val?.firmness?.name}}</div>
+                <div class="growth-time">Growth Time : {{val.growth_time}}</div>
+                <div class="max-harvest">Max Harvest : {{val.max_harvest}}</div>
+            </div>
+            <div class="card-footer">
+                <a [routerLink]="['/catalog/info']" [state]="{info: val}">Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="no-data-found" *ngIf="(berries | filterBerryBy: filter | orderBerryBy: true).length === 0">
+        No Data Found.
+    </div>
+</div>

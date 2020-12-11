@@ -1,0 +1,58 @@
+<div class="title">Berry Info</div>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>
+            {{berryInfo?.name}}
+        </td>
+    </tr>
+    <tr>
+        <td>Firmness</td>
+        <td>
+            {{berryInfo?.firmness?.name}}
+            <br>
+            <a [routerLink]="['/berry-firmness', berryInfo?.firmness?.name]">Show me berries with same Firmness</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Id</td>
+        <td>{{berryInfo?.id}}</td>
+    </tr>
+    <tr>
+        <td>Growth Time</td>
+        <td>{{berryInfo?.growth_time}}</td>
+    </tr>
+    <tr>
+        <td>Max Harvest</td>
+        <td>{{berryInfo?.max_harvest}}</td>
+    </tr>
+    <tr>
+        <td>Natural Gift Power</td>
+        <td>{{berryInfo?.natural_gift_power}}</td>
+    </tr>
+    <tr>
+        <td>Smoothness</td>
+        <td>{{berryInfo?.smoothness}}</td>
+    </tr>
+    <tr>
+        <td>Soil Dryness</td>
+        <td>{{berryInfo?.soil_dryness}}</td>
+    </tr>
+    <tr>
+        <td>Item</td>
+        <td>{{berryInfo?.item?.name}}</td>
+    </tr>
+    <tr>
+        <td>Natural Gift Type</td>
+        <td>{{berryInfo?.natural_gift_type?.name}}</td>
+    </tr>
+    <tr>
+        <td>Flavors</td>
+        <td>
+            <div class="flavor" *ngFor="let val of berryInfo?.flavors">
+                <b>{{val?.flavor?.name}}</b> flavor with potency <b>{{val?.potency}}</b>
+            </div>
+        </td>
+    </tr>
+
+</table>
